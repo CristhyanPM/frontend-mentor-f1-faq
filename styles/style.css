@@ -1,0 +1,224 @@
+:root {
+  --very-dark-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+  --light-grayish-blue: hsl(240, 5%, 91%);
+
+  /*Funtion Colors*/
+  --clr-text-regular: var(--very-dark-grayish-blue);
+  --clr-text-title: var(--very-dark-blue);
+  --clr-text-secondary: var(--dark-grayish-blue);
+
+  --clr-divider: var(--light-grayish-blue);
+  --clr-background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  --clr-body: var(--light-grayish-blue);
+  --clr-accent: var(--soft-red);
+
+  /*Fonts*/
+  --fs-primary: 12px
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--clr-background);
+}
+
+main {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 0 24px 36px;
+  border-radius: 24px;
+  background-color: white;
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.illustration-desk {
+  display: none;
+}
+
+.illustration-mobile {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 2/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.illustration-mobile .woman {
+  position: absolute;
+  width: 100%;
+
+  top: -80%
+}
+.illustration-mobile .bg {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+.questions-container {
+  width: 100%;
+  max-width: 350px;
+  max-height: 385px;
+  overflow: auto;
+}
+.questions-container::-webkit-scrollbar {display: none;}
+
+.questions {
+  display: block;
+  padding: 16px 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -moz-tap-highlight-color: rgba(0,0,0,0);
+  -o-tap-highlight-color: rgba(0,0,0,0);
+}
+.questions .q-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+}
+.questions:active .q-header p{
+  color: var(--clr-accent);
+}
+.questions .q-header p{
+  font-weight: 400;
+  color: var(--clr-text-title);
+}
+.questions .q-header span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions > p {
+  margin-top: 12px;
+  display: none;
+  color: var(--clr-text-secondary);
+}
+
+.questions input {
+  display: none;
+  visibility: hidden;
+}
+.questions input:checked ~ .q-header span {
+  transform: rotateX(180deg);
+}
+.questions input:checked ~ .q-header p {
+  font-weight: 700;
+  font-size: 95%;
+}
+.questions input:checked ~ p {
+  display: block;
+}
+.divider {
+  width: 100%;
+  height: 1.2px;
+  background: var(--clr-divider);
+}
+
+.attribution {
+  margin-top: 24px;
+  font-size: 11px; text-align: center;
+  color: hsl(228, 45%, 44%);
+}
+.attribution a {
+  color: var(--clr-text-title);
+}
+.box {
+  display: none;
+}
+
+
+@media screen and (min-width:600px) {
+  main {
+    width: 80%;
+  }
+}
+@media screen and (min-width:800px) {
+  main {
+    margin-top: 0;
+    padding-top: 36px;
+    max-width: 900px;
+    height: 500px;
+    overflow: hidden;
+  }
+  .main-container {
+    display: -ms-grid;
+    display: grid;
+    min-height: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+  .questions-container {
+    margin-right: 24px;
+  }
+  .illustration-mobile {
+    display: none;
+  }
+  .illustration-desk {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+  }
+  .illustration-desk .woman {
+    position: absolute;
+    width: 100%;
+    left: -90px;
+  }
+  .illustration-desk .bg {
+    position: absolute;
+    width: 120%;
+    left: -170px;
+  }
+  h1 {
+    text-align: left;
+  }
+  .box {
+    position: absolute;
+    display: block;
+    width: 15%;
+    max-width: 185px;
+    transform: translateX(-70%) translateY(20%);
+  }
+}
+
